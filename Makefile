@@ -6,3 +6,6 @@ install: bin/$(LOGISIM_JAR)
 bin/$(LOGISIM_JAR):
 	mkdir -p bin
 	curl -L $(LOGIDIM_URL) -o bin/$(LOGISIM_JAR)
+
+run: bin/$(LOGISIM_JAR)
+	java -jar bin/$(LOGISIM_JAR)
