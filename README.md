@@ -5,6 +5,8 @@
 
 ## Prerequisite
 
+- [sdkman](https://sdkman.io/)
+
 ```
 make install
 ```
