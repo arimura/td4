@@ -104,7 +104,7 @@
     </comp>
     <comp lib="0" loc="(90,290)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="c"/>
+      <a name="label" val="C"/>
     </comp>
     <comp lib="0" loc="(90,380)" name="Pin">
       <a name="appearance" val="NewPins"/>
