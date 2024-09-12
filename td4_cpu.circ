@@ -64,12 +64,15 @@
     </comp>
     <comp lib="0" loc="(340,1230)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="CK"/>
     </comp>
     <comp lib="0" loc="(340,1280)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="A"/>
     </comp>
     <comp lib="0" loc="(340,1320)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="B"/>
     </comp>
     <comp lib="0" loc="(340,710)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -101,10 +104,18 @@
     <comp lib="2" loc="(1010,540)" name="Multiplexer">
       <a name="select" val="2"/>
     </comp>
-    <comp loc="(720,1080)" name="custom_74HC161"/>
-    <comp loc="(720,630)" name="custom_74HC161"/>
-    <comp loc="(720,780)" name="custom_74HC161"/>
-    <comp loc="(720,930)" name="custom_74HC161"/>
+    <comp loc="(720,1080)" name="custom_74HC161">
+      <a name="label" val="D_74HC161"/>
+    </comp>
+    <comp loc="(720,630)" name="custom_74HC161">
+      <a name="label" val="A_74HC161"/>
+    </comp>
+    <comp loc="(720,780)" name="custom_74HC161">
+      <a name="label" val="B_74HC161"/>
+    </comp>
+    <comp loc="(720,930)" name="custom_74HC161">
+      <a name="label" val="C_74HC161"/>
+    </comp>
     <wire from="(1010,330)" to="(1070,330)"/>
     <wire from="(1010,400)" to="(1060,400)"/>
     <wire from="(1010,470)" to="(1050,470)"/>
