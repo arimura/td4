@@ -132,6 +132,9 @@
     <comp lib="2" loc="(1010,540)" name="Multiplexer">
       <a name="select" val="2"/>
     </comp>
+    <comp lib="4" loc="(1600,670)" name="D Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
     <comp loc="(1510,600)" name="custom_74HC283"/>
     <comp loc="(720,1080)" name="custom_74HC161">
       <a name="label" val="D_74HC161"/>
@@ -176,7 +179,9 @@
     <wire from="(1510,620)" to="(1610,620)"/>
     <wire from="(1510,640)" to="(1600,640)"/>
     <wire from="(1510,660)" to="(1590,660)"/>
+    <wire from="(1510,680)" to="(1590,680)"/>
     <wire from="(1590,280)" to="(1590,660)"/>
+    <wire from="(1590,720)" to="(1590,1230)"/>
     <wire from="(1600,260)" to="(1600,640)"/>
     <wire from="(1610,250)" to="(1610,620)"/>
     <wire from="(1620,240)" to="(1620,600)"/>
@@ -191,6 +196,7 @@
     <wire from="(370,1030)" to="(500,1030)"/>
     <wire from="(370,1180)" to="(370,1230)"/>
     <wire from="(370,1180)" to="(500,1180)"/>
+    <wire from="(370,1230)" to="(1590,1230)"/>
     <wire from="(370,730)" to="(370,880)"/>
     <wire from="(370,730)" to="(500,730)"/>
     <wire from="(370,880)" to="(370,1030)"/>
