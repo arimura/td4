@@ -72,6 +72,11 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="IM_4"/>
     </comp>
+    <comp lib="0" loc="(1630,1230)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
     <comp lib="0" loc="(350,1160)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
@@ -176,6 +181,13 @@
     <comp lib="4" loc="(1600,670)" name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
+    <comp lib="4" loc="(1640,1220)" name="ROM">
+      <a name="addrWidth" val="4"/>
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="contents">addr/data: 4 8
+0
+</a>
+    </comp>
     <comp lib="4" loc="(500,1130)" name="Counter">
       <a name="appearance" val="logisim_evolution"/>
       <a name="max" val="0xf"/>
@@ -234,6 +246,7 @@
     <wire from="(1600,260)" to="(1600,640)"/>
     <wire from="(1610,250)" to="(1610,620)"/>
     <wire from="(1620,240)" to="(1620,600)"/>
+    <wire from="(1630,1230)" to="(1640,1230)"/>
     <wire from="(350,1160)" to="(500,1160)"/>
     <wire from="(350,1350)" to="(370,1350)"/>
     <wire from="(350,1380)" to="(950,1380)"/>
@@ -303,6 +316,10 @@
     <wire from="(710,1050)" to="(790,1050)"/>
     <wire from="(710,1060)" to="(830,1060)"/>
     <wire from="(710,1070)" to="(870,1070)"/>
+    <wire from="(710,1240)" to="(1610,1240)"/>
+    <wire from="(710,1250)" to="(1610,1250)"/>
+    <wire from="(710,1260)" to="(1610,1260)"/>
+    <wire from="(710,1270)" to="(1610,1270)"/>
     <wire from="(710,640)" to="(730,640)"/>
     <wire from="(710,650)" to="(770,650)"/>
     <wire from="(710,660)" to="(810,660)"/>
