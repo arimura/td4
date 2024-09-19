@@ -56,30 +56,6 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(1140,1490)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="output_port_0"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(1140,1520)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="output_port_1"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(1140,1550)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="output_port_2"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(1140,1580)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="output_port_3"/>
-      <a name="output" val="true"/>
-    </comp>
     <comp lib="0" loc="(1200,810)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="IM_1"/>
@@ -247,6 +223,18 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="max" val="0xf"/>
       <a name="width" val="4"/>
+    </comp>
+    <comp lib="5" loc="(1140,1490)" name="LED">
+      <a name="label" val="LED_0"/>
+    </comp>
+    <comp lib="5" loc="(1140,1520)" name="LED">
+      <a name="label" val="LED_1"/>
+    </comp>
+    <comp lib="5" loc="(1140,1550)" name="LED">
+      <a name="label" val="LED_2"/>
+    </comp>
+    <comp lib="5" loc="(1140,1580)" name="LED">
+      <a name="label" val="LED_3"/>
     </comp>
     <comp loc="(1510,600)" name="custom_74HC283"/>
     <wire from="(1010,330)" to="(1280,330)"/>
