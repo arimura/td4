@@ -17,7 +17,7 @@ const (
 //Instruction format
 //    MSB <----------------------> LSB
 //bit| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
-//   |Op Cod e       |Immediate data |
+//   |Op Code        |Immediate data |
 
 type add struct {
 	// Register name
