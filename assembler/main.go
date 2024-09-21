@@ -43,7 +43,7 @@ func (x *add) gen() {
 	} else if x.register == b {
 		s = 0b0101
 	} else {
-		log.Fatal("Invalid register")
+		log.Fatal("ADD gen: Invalid register")
 	}
 	s = appendIm(s, x.im)
 
@@ -65,7 +65,7 @@ func (x *out) gen() {
 	} else if x.regiser == b {
 		s = 0b10110000
 	} else {
-		log.Fatalf("Invalid register")
+		log.Fatal("OUT gen: Invalid register")
 	}
 	print(s)
 }
@@ -83,7 +83,7 @@ func (x *in) gen() {
 	} else if x.register == b {
 		s = 0b0110000
 	} else {
-		log.Fatal("Invalid register")
+		log.Fatal("IN gen: Invalid register")
 	}
 	print(s)
 }
@@ -107,7 +107,7 @@ func (x *mov) gen() {
 		} else if x.register2 == b {
 			s = 0b00010000
 		} else {
-			log.Fatal("Invalid register")
+			log.Fatal("MOV gen: Invalid 2nd register")
 		}
 	} else if x.register1 == b {
 		if x.im != "" {
@@ -115,9 +115,11 @@ func (x *mov) gen() {
 			s = appendIm(s, x.im)
 		} else if x.register2 == a {
 			s = 0b0100000
+		} else {
+			log.Fatal("MOV gen: Invalid 2nd register")
 		}
 	} else {
-		log.Fatal("Invalid register")
+		log.Fatal("MOV gen: Invalid 1st register")
 	}
 	print(s)
 }
@@ -188,11 +190,11 @@ func gen(l string) {
 		} else if consume(&l, "B, ") {
 			addi = add{register: b}
 		} else {
-			log.Fatal("Unsupported Operand")
+			log.Fatal("ADD consume: Invalid register")
 		}
 		im := consumeBinary(&l)
 		if im == "" {
-			log.Fatal("Unsupported Immediate data")
+			log.Fatal("ADD consume: Invalid Immediate data")
 		}
 		addi.im = im
 		i = &addi
@@ -203,7 +205,7 @@ func gen(l string) {
 		} else if im := consumeBinary(&l); im != "" {
 			outi = out{im: im}
 		} else {
-			log.Fatal("Unsupported Op code")
+			log.Fatal("OUT consume: Invalid Operand")
 		}
 		i = &outi
 	} else if consume(&l, "IN ") {
@@ -213,7 +215,7 @@ func gen(l string) {
 		} else if consume(&l, "B") {
 			ini = in{register: b}
 		} else {
-			log.Fatal("Invalid register")
+			log.Fatal("IN consume: Invalid Operand")
 		}
 		i = &ini
 	} else if consume(&l, "MOV ") {
@@ -224,7 +226,7 @@ func gen(l string) {
 			} else if im := consumeBinary(&l); im != "" {
 				movi = mov{register1: a, im: im}
 			} else {
-				log.Fatal("Invalid Operand")
+				log.Fatal("MOV consume: Invalid Operand")
 			}
 		} else if consume(&l, "B, ") {
 			if consume(&l, "A") {
@@ -232,26 +234,26 @@ func gen(l string) {
 			} else if im := consumeBinary(&l); im != "" {
 				movi = mov{register1: b, im: im}
 			} else {
-				log.Fatal("Invalid Operand")
+				log.Fatal()
 			}
 		} else {
-			log.Fatal("Invalid Operand")
+			log.Fatal("MOV consume: Invalid Operand")
 		}
 		i = &movi
 	} else if consume(&l, "JMP ") {
 		im := consumeBinary(&l)
 		if im == "" {
-			log.Fatal("Unsupported Immediate data")
+			log.Fatal("JMP consume: Invalid Immediate data")
 		}
 		i = &jmp{im: im}
 	} else if consume(&l, "JNC ") {
 		im := consumeBinary(&l)
 		if im == "" {
-			log.Fatal("Unsupported Immediate data")
+			log.Fatal("JNC consume: Invalid Immediate data")
 		}
 		i = &jnc{im: im}
 	} else {
-		log.Fatal("Unsupported Op Code")
+		log.Fatal("consume: Invalid instruction")
 	}
 	i.gen()
 }
