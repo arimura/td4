@@ -17,3 +17,6 @@ ASM_FILE=
 OUT_FILE=
 assemble:
 	go run assembler/main.go -f $(ASM_FILE) -o $(OUT_FILE)
+
+assemble-debug:
+	go run assembler/main.go -f $(ASM_FILE) -o $(OUT_FILE) -b

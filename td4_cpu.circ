@@ -163,8 +163,8 @@
     <comp lib="1" loc="(1810,1310)" name="OR Gate"/>
     <comp lib="1" loc="(1810,1370)" name="OR Gate"/>
     <comp lib="1" loc="(1810,1430)" name="OR Gate"/>
-    <comp lib="1" loc="(1810,1490)" name="AND Gate"/>
-    <comp lib="1" loc="(1810,1550)" name="AND Gate">
+    <comp lib="1" loc="(1820,1490)" name="NAND Gate"/>
+    <comp lib="1" loc="(1820,1550)" name="NAND Gate">
       <a name="inputs" val="3"/>
     </comp>
     <comp lib="2" loc="(1010,330)" name="Multiplexer">
@@ -183,7 +183,8 @@
       <a name="addrWidth" val="4"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 4 8
-0
+b7 1 e1 1 e3 b6 1 e6
+1 e8 b0 b4 1 ea b8 ff
 </a>
     </comp>
     <comp lib="4" loc="(1600,670)" name="D Flip-Flop">
@@ -317,8 +318,10 @@
     <wire from="(1810,1310)" to="(1830,1310)"/>
     <wire from="(1810,1370)" to="(1850,1370)"/>
     <wire from="(1810,1430)" to="(1860,1430)"/>
-    <wire from="(1810,1490)" to="(1870,1490)"/>
-    <wire from="(1810,1550)" to="(1880,1550)"/>
+    <wire from="(1810,1490)" to="(1820,1490)"/>
+    <wire from="(1810,1550)" to="(1820,1550)"/>
+    <wire from="(1820,1490)" to="(1870,1490)"/>
+    <wire from="(1820,1550)" to="(1880,1550)"/>
     <wire from="(1830,870)" to="(1830,1310)"/>
     <wire from="(1850,140)" to="(1850,1370)"/>
     <wire from="(1860,150)" to="(1860,1430)"/>
