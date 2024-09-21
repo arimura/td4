@@ -79,9 +79,9 @@ func appendIm(bin uint8, im string) uint8 {
 
 func print(i uint8) {
 	if *binaryOption {
-		fmt.Printf(" %08b", i)
+		writer.WriteString(fmt.Sprintf(" %08b", i))
 	} else {
-		fmt.Printf(" %02X", i)
+		writer.WriteString(fmt.Sprintf(" %02x", i))
 	}
 }
 
@@ -139,10 +139,12 @@ func gen(l string) {
 }
 
 var binaryOption *bool
+var writer *bufio.Writer
 
 func main() {
 	binaryOption = flag.Bool("b", false, "Specify output as binary format")
 	ff := flag.String("f", "", "Specify assembly")
+	of := flag.String("o", "", "Specify output")
 	flag.Parse()
 
 	f, err := os.Open(*ff)
@@ -151,10 +153,17 @@ func main() {
 	}
 	defer f.Close()
 
+	o, err := os.OpenFile(*of, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer o.Close()
+	writer = bufio.NewWriter(o)
+
 	scanner := bufio.NewScanner(f)
 
-	fmt.Printf("v3.0 hex words addressed\n")
-	fmt.Printf("0:")
+	writer.WriteString("v3.0 hex words addressed\n")
+	writer.WriteString("0:")
 	c := 0
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -165,10 +174,15 @@ func main() {
 		c++
 	}
 	if c < 15 {
-		fmt.Printf(strings.Repeat(" 00", 15-c) + "\n")
+		writer.WriteString(strings.Repeat(" 00", 16-c) + "\n")
 	}
 
 	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	err = writer.Flush()
+	if err != nil {
 		log.Fatal(err)
 	}
 }

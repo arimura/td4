@@ -14,5 +14,6 @@ run: bin/$(LOGISIM_JAR)
 	  java -jar bin/$(LOGISIM_JAR)
 
 ASM_FILE=
+OUT_FILE=
 assemble:
-	go run assembler/main.go -f $(ASM_FILE) 
+	go run assembler/main.go -f $(ASM_FILE) -o $(OUT_FILE)
