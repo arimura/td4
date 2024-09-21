@@ -79,9 +79,9 @@ func appendIm(bin uint8, im string) uint8 {
 
 func print(i uint8) {
 	if *binaryOption {
-		fmt.Printf("%08b\n", i)
+		fmt.Printf(" %08b", i)
 	} else {
-		fmt.Printf("%X\n", i)
+		fmt.Printf(" %02X", i)
 	}
 }
 
@@ -152,12 +152,20 @@ func main() {
 	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
+
+	fmt.Printf("v3.0 hex words addressed\n")
+	fmt.Printf("0:")
+	c := 0
 	for scanner.Scan() {
 		line := scanner.Text()
 		if strings.HasPrefix(line, ";") {
 			continue
 		}
 		gen(line)
+		c++
+	}
+	if c < 15 {
+		fmt.Printf(strings.Repeat(" 00", 15-c) + "\n")
 	}
 
 	if err := scanner.Err(); err != nil {
