@@ -1,1 +1,3 @@
-ADD B, 0010
+; this is comment
+; ADD B, 0010
+OUT 0010

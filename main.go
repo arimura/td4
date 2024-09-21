@@ -154,6 +154,9 @@ func main() {
 	scanner := bufio.NewScanner(f)
 	for scanner.Scan() {
 		line := scanner.Text()
+		if strings.HasPrefix(line, ";") {
+			continue
+		}
 		gen(line)
 	}
 
