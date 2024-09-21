@@ -133,6 +133,17 @@ func (x *jmp) gen() {
 	print(s)
 }
 
+type jnc struct {
+	im string
+}
+
+func (x *jnc) gen() {
+	//JNC: 1110
+	var s uint8 = 0b1110
+	s = appendIm(s, x.im)
+	print(s)
+}
+
 func appendIm(bin uint8, im string) uint8 {
 	for _, c := range im {
 		bin = (bin << 1) | uint8(c-'0')
