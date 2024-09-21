@@ -122,6 +122,17 @@ func (x *mov) gen() {
 	print(s)
 }
 
+type jmp struct {
+	im string
+}
+
+func (x *jmp) gen() {
+	//JMP: 1111
+	var s uint8 = 0b1111
+	s = appendIm(s, x.im)
+	print(s)
+}
+
 func appendIm(bin uint8, im string) uint8 {
 	for _, c := range im {
 		bin = (bin << 1) | uint8(c-'0')
