@@ -12,3 +12,7 @@ run: bin/$(LOGISIM_JAR)
 	@$(SDKMAN_INIT) && \
 	  sdk env &&\
 	  java -jar bin/$(LOGISIM_JAR)
+
+ASM_FILE=
+assemble:
+	go run assembler/main.go -f $(ASM_FILE)
