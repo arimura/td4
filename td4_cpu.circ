@@ -68,7 +68,11 @@
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
-    <comp lib="0" loc="(350,1350)" name="Pin">
+    <comp lib="0" loc="(260,1300)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="clear"/>
+    </comp>
+    <comp lib="0" loc="(260,1350)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="CK"/>
     </comp>
@@ -320,6 +324,15 @@
     <wire from="(1860,150)" to="(1860,1430)"/>
     <wire from="(1870,160)" to="(1870,1490)"/>
     <wire from="(1880,170)" to="(1880,1550)"/>
+    <wire from="(260,1150)" to="(260,1300)"/>
+    <wire from="(260,1150)" to="(500,1150)"/>
+    <wire from="(260,1350)" to="(370,1350)"/>
+    <wire from="(260,550)" to="(260,750)"/>
+    <wire from="(260,550)" to="(500,550)"/>
+    <wire from="(260,750)" to="(260,950)"/>
+    <wire from="(260,750)" to="(500,750)"/>
+    <wire from="(260,950)" to="(260,1150)"/>
+    <wire from="(260,950)" to="(500,950)"/>
     <wire from="(320,1160)" to="(500,1160)"/>
     <wire from="(320,170)" to="(1880,170)"/>
     <wire from="(320,170)" to="(320,1160)"/>
@@ -329,7 +342,6 @@
     <wire from="(340,150)" to="(1860,150)"/>
     <wire from="(340,150)" to="(340,760)"/>
     <wire from="(340,760)" to="(500,760)"/>
-    <wire from="(350,1350)" to="(370,1350)"/>
     <wire from="(350,140)" to="(1850,140)"/>
     <wire from="(350,140)" to="(350,560)"/>
     <wire from="(350,1490)" to="(750,1490)"/>
