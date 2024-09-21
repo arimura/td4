@@ -12,7 +12,8 @@ import (
 type register int
 
 const (
-	a register = iota
+	none register = iota
+	a
 	b
 )
 
@@ -36,20 +37,51 @@ func (x *add) gen() {
 	//   MSB <-> LSB
 	//ADD A: 0000
 	//ADD B: 0101
-	var s int8
+	var s uint8
 	if x.register == a {
 		s = 0b0000
-	} else {
+	} else if x.register == b {
 		s = 0b0101
-	}
-	for _, c := range x.im {
-		s = (s << 1) | int8(c-'0')
-	}
-
-	if *binaryOption {
-		fmt.Printf("%b\n", s)
 	} else {
-		fmt.Printf("%X\n", s)
+		log.Fatal("Invalid register")
+	}
+	s = appendIm(s, x.im)
+
+	print(s)
+}
+
+type out struct {
+	regiser register
+	im      string
+}
+
+func (x *out) gen() {
+	//OUT Im: 1011
+	//OUT B: 1001
+	var s uint8
+	if x.regiser == none {
+		s = 0b1011
+		s = appendIm(s, x.im)
+	} else if x.regiser == b {
+		s = 0b10110000
+	} else {
+		log.Fatalf("Invalid register")
+	}
+	print(s)
+}
+
+func appendIm(bin uint8, im string) uint8 {
+	for _, c := range im {
+		bin = (bin << 1) | uint8(c-'0')
+	}
+	return bin
+}
+
+func print(i uint8) {
+	if *binaryOption {
+		fmt.Printf("%08b\n", i)
+	} else {
+		fmt.Printf("%X\n", i)
 	}
 }
 
@@ -90,6 +122,16 @@ func gen(l string) {
 		}
 		addi.im = im
 		i = &addi
+	} else if consume(&l, "OUT ") {
+		var outi out
+		if consume(&l, " B") {
+			outi = out{regiser: b}
+		} else if im := consumeBinary(&l); im != "" {
+			outi = out{im: im}
+		} else {
+			log.Fatal("Unsupported Op code")
+		}
+		i = &outi
 	} else {
 		log.Fatal("Unsupported Op Code")
 	}
