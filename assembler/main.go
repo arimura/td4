@@ -70,6 +70,58 @@ func (x *out) gen() {
 	print(s)
 }
 
+type in struct {
+	register register
+}
+
+func (x *in) gen() {
+	//IN A: 0010
+	//IN B: 0110
+	var s uint8
+	if x.register == a {
+		s = 0b0010000
+	} else if x.register == b {
+		s = 0b0110000
+	} else {
+		log.Fatal("Invalid register")
+	}
+	print(s)
+}
+
+type mov struct {
+	register1 register
+	register2 register
+	im        string
+}
+
+func (x *mov) gen() {
+	//MOV A, Im: 0011
+	//MOV B, Im: 0111
+	//MOV A, B:  0001
+	//MOV B, A:  0100
+	var s uint8
+	if x.register1 == a {
+		if x.im != "" {
+			s = 0b0011
+			s = appendIm(s, x.im)
+		} else if x.register2 == b {
+			s = 0b00010000
+		} else {
+			log.Fatal("Invalid register")
+		}
+	} else if x.register1 == b {
+		if x.im != "" {
+			s = 0b0111
+			s = appendIm(s, x.im)
+		} else if x.register2 == a {
+			s = 0b0100000
+		}
+	} else {
+		log.Fatal("Invalid register")
+	}
+	print(s)
+}
+
 func appendIm(bin uint8, im string) uint8 {
 	for _, c := range im {
 		bin = (bin << 1) | uint8(c-'0')
