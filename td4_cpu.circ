@@ -92,6 +92,9 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="input_port_3"/>
     </comp>
+    <comp lib="0" loc="(480,1020)" name="Ground"/>
+    <comp lib="0" loc="(480,630)" name="Ground"/>
+    <comp lib="0" loc="(480,820)" name="Ground"/>
     <comp lib="0" loc="(490,1180)" name="Constant"/>
     <comp lib="0" loc="(490,1200)" name="Constant"/>
     <comp lib="0" loc="(490,580)" name="Constant"/>
@@ -407,6 +410,12 @@ b7 1 e1 1 e3 b6 1 e6
     <wire from="(460,660)" to="(480,660)"/>
     <wire from="(460,860)" to="(460,1060)"/>
     <wire from="(460,860)" to="(480,860)"/>
+    <wire from="(480,1000)" to="(480,1020)"/>
+    <wire from="(480,1000)" to="(500,1000)"/>
+    <wire from="(480,600)" to="(480,630)"/>
+    <wire from="(480,600)" to="(500,600)"/>
+    <wire from="(480,800)" to="(480,820)"/>
+    <wire from="(480,800)" to="(500,800)"/>
     <wire from="(490,1180)" to="(500,1180)"/>
     <wire from="(490,1200)" to="(500,1200)"/>
     <wire from="(490,580)" to="(500,580)"/>
