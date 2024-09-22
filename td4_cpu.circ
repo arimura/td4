@@ -68,13 +68,14 @@
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
+    <comp lib="0" loc="(180,1390)" name="Clock"/>
+    <comp lib="0" loc="(200,1350)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CK"/>
+    </comp>
     <comp lib="0" loc="(260,1300)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="clear"/>
-    </comp>
-    <comp lib="0" loc="(260,1350)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="label" val="CK"/>
     </comp>
     <comp lib="0" loc="(350,1490)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -170,6 +171,7 @@
     <comp lib="1" loc="(1820,1550)" name="NAND Gate">
       <a name="inputs" val="3"/>
     </comp>
+    <comp lib="1" loc="(310,1370)" name="OR Gate"/>
     <comp lib="1" loc="(360,1160)" name="NOT Gate"/>
     <comp lib="1" loc="(380,760)" name="NOT Gate"/>
     <comp lib="1" loc="(380,960)" name="NOT Gate"/>
@@ -324,6 +326,7 @@ b7 1 e1 1 e3 b6 1 e6
     <wire from="(1710,1410)" to="(1710,1470)"/>
     <wire from="(1710,1410)" to="(1760,1410)"/>
     <wire from="(1710,1470)" to="(1760,1470)"/>
+    <wire from="(180,1390)" to="(260,1390)"/>
     <wire from="(1810,1310)" to="(1830,1310)"/>
     <wire from="(1810,1370)" to="(1850,1370)"/>
     <wire from="(1810,1430)" to="(1860,1430)"/>
@@ -336,15 +339,16 @@ b7 1 e1 1 e3 b6 1 e6
     <wire from="(1860,150)" to="(1860,1430)"/>
     <wire from="(1870,160)" to="(1870,1490)"/>
     <wire from="(1880,170)" to="(1880,1550)"/>
+    <wire from="(200,1350)" to="(260,1350)"/>
     <wire from="(260,1150)" to="(260,1300)"/>
     <wire from="(260,1150)" to="(500,1150)"/>
-    <wire from="(260,1350)" to="(370,1350)"/>
     <wire from="(260,550)" to="(260,750)"/>
     <wire from="(260,550)" to="(500,550)"/>
     <wire from="(260,750)" to="(260,950)"/>
     <wire from="(260,750)" to="(500,750)"/>
     <wire from="(260,950)" to="(260,1150)"/>
     <wire from="(260,950)" to="(500,950)"/>
+    <wire from="(310,1370)" to="(370,1370)"/>
     <wire from="(320,1160)" to="(330,1160)"/>
     <wire from="(320,170)" to="(1880,170)"/>
     <wire from="(320,170)" to="(320,1160)"/>
@@ -367,6 +371,7 @@ b7 1 e1 1 e3 b6 1 e6
     <wire from="(370,1210)" to="(370,1350)"/>
     <wire from="(370,1210)" to="(500,1210)"/>
     <wire from="(370,1350)" to="(1510,1350)"/>
+    <wire from="(370,1350)" to="(370,1370)"/>
     <wire from="(370,610)" to="(370,810)"/>
     <wire from="(370,610)" to="(500,610)"/>
     <wire from="(370,810)" to="(370,1010)"/>
